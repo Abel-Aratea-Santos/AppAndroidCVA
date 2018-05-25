@@ -1,6 +1,7 @@
 package com.example.jonathan.pruebacva;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -28,12 +29,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+        Button fab = (Button) findViewById(R.id.Sesion);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Presionar en las tres Rayitas :V", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent fab = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(fab);
             }
         });
 
@@ -48,11 +51,9 @@ public class MainActivity extends AppCompatActivity
 
         android.support.v4.app.FragmentManager fragments= getSupportFragmentManager();
 
-        //creando el boton buscar para cambiar de actividad en propiedades
-        Button buscar = (Button)this.findViewById(R.id.buscar);
-        buscar.setOnClickListener((View.OnClickListener) this);
-
     }
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -96,19 +97,20 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.home) {
             fragments.beginTransaction().replace(R.id.contenedor ,new HomeFragment()).commit();
         } else if (id == R.id.registro) {
-
+            fragments.beginTransaction().replace(R.id.contenedor ,new ResgistrarFragment()).commit();
         } else if (id == R.id.ingresoagentes) {
-
+            fragments.beginTransaction().replace(R.id.contenedor ,new IngreAgentFragment()).commit();
         } else if (id == R.id.salir) {
-
+            fragments.beginTransaction().replace(R.id.contenedor ,new HomeFragment()).commit();
         } else if (id == R.id.propiedad) {
             fragments.beginTransaction().replace(R.id.contenedor ,new BuscarpropFragment()).commit();
         } else if (id == R.id.mapa) {
-
+            fragments.beginTransaction().replace(R.id.contenedor ,new BuscarMapaFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

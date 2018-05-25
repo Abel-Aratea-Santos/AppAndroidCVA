@@ -34,7 +34,7 @@
         android:ems="10"
         android:inputType="phone"
         android:text="Telefono"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/tipoProp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/tipoProp"
         android:layout_width="285dp"
         android:layout_height="98dp"
         android:layout_marginBottom="168dp"
